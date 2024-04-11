@@ -6,4 +6,5 @@
     <string name="button4">Updates</string>
 
     <string name="nothing">Nothing</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

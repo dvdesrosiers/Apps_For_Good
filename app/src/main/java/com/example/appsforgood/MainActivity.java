@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,PlanTrip.class);
+                Intent intent = new Intent(MainActivity.this, UpdatesFeedback.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,UpdatesFeedback.class);
+                Intent intent = new Intent(MainActivity.this,BusSchedules.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,BusSchedules.class);
+                Intent intent = new Intent(MainActivity.this,MapsActivity.class);
                 startActivity(intent);
             }
         });
