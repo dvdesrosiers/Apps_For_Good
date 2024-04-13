@@ -4,12 +4,16 @@
     <string name="button2">Bus Schedules</string>
     <string name="button3">Updates/Alerts</string>
     <string name="button4">Updates</string>
-    <string name="busStart">Please enter your desired bus stop name or code:</string>
     <string name="updates">Please enter any updates and include stop ID:</string>
     <string name="submit">Submit</string>
     <string name="update">Type update here…</string>
-    <string name="update2">Type stop here…</string>
     <string name="nothing">Nothing</string>
     <string name="back">Back</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="RouteEnterLabelStr">Enter Route</string>
+    <string name="BusScheduleSearchStr">Search For a Bus Route Schedule</string>
+    <string name="bus_schedule">Bus Schedule Search\n</string>
+    <string name="enter_date_dd_mm_yyyy">Date Entry\n</string>
+    <string name="select_route">Route Selection\n</string>
+    <string name="view_bus_times">View Bus Times\n</string>
 </resources>
