@@ -4,7 +4,12 @@
     <string name="button2">Bus Schedules</string>
     <string name="button3">Updates/Alerts</string>
     <string name="button4">Updates</string>
-
+    <string name="busStart">Please enter your desired bus stop name or code:</string>
+    <string name="updates">Please enter any updates and include stop ID:</string>
+    <string name="submit">Submit</string>
+    <string name="update">Type update here…</string>
+    <string name="update2">Type stop here…</string>
     <string name="nothing">Nothing</string>
+    <string name="back">Back</string>
     <string name="title_activity_maps">MapsActivity</string>
 </resources>
