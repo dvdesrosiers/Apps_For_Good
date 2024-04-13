@@ -5,5 +5,13 @@
     <string name="button3">Live Bus Locations</string>
     <string name="button4">Updates</string>
 
+
+        <string name="RouteEnterLabelStr">Enter Route</string>
+        <string name="BusScheduleSearchStr">Search For a Bus Route Schedule</string>
+        <string name="bus_schedule">Bus Schedule Search\n</string>
+        <string name="enter_date_dd_mm_yyyy">Date Entry\n</string>
+        <string name="select_route">Route Selection\n</string>
+        <string name="view_bus_times">View Bus Times\n</string>
+
     <string name="nothing">Nothing</string>
 </resources>
