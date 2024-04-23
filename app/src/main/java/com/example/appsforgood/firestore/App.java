@@ -1,7 +1,7 @@
-package com.example.appsforgood;
+package com.example.appsforgood.firestore;
 
 import android.app.Application;
 
 public class App extends Application {
-    public static Stops stop;
+    public static Alerts alert;
 }
