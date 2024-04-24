@@ -1,5 +1,6 @@
 package com.example.appsforgood;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -26,7 +27,9 @@ TextView textView;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent = new Intent(UpdatesFeedback.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         textView = (TextView) findViewById(R.id.textView);
