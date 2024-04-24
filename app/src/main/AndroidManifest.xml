@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FOREGROUND_LOCATION"/>
+
 
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,30 +24,6 @@
         android:theme="@style/Theme.AppsForGood"
         tools:targetApi="31">
         <activity
-            android:name=".test"
-            android:exported="false"
-            android:label="@string/title_activity_test"
-            android:theme="@style/Theme.AppsForGood">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!--
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD7ahMN9ZnYtWrZ_er41b0Iad41SgRIk6o" />
-
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -52,9 +33,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".test"
             android:exported="true"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_test"
+            android:theme="@style/Theme.AppsForGood">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

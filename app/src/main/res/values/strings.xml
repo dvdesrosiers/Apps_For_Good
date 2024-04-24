@@ -8,7 +8,7 @@
     <string name="submit">Submit</string>
     <string name="update">Type update here…</string>
     <string name="nothing">Nothing</string>
-    <string name="back">Back</string>
+    <string name="back">Home</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="RouteEnterLabelStr">Enter Route</string>
     <string name="BusScheduleSearchStr">Search For a Bus Route Schedule</string>
