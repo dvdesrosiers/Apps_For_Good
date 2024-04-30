@@ -34,4 +34,7 @@ public class Stops {
         String times = "";
         return times;
     }
+    public String display(){
+        return stopName;
+    }
 }
