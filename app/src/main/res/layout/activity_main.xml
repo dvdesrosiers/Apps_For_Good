@@ -9,6 +9,13 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
@@ -53,5 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

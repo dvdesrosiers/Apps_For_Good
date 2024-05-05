@@ -16,4 +16,10 @@
     <string name="enter_date_dd_mm_yyyy">Date Entry\n</string>
     <string name="select_route">Route Selection\n</string>
     <string name="view_bus_times">View Bus Times\n</string>
-</resources>
+    <string name="select_a_route">Select a route</string>
+    <string name="enter_stop_id">Enter Stop ID</string>
+    <string name="stop_id">Stop ID</string>
+
+
+    <string name="select">Select Item</string>
+</resources >
