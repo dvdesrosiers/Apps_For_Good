@@ -1,5 +1,6 @@
 package com.example.appsforgood;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class BusSchedules extends AppCompatActivity {
 
     ArrayAdapter<String> adapterItems;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class BusSchedules extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        String item2 = parent.getItemAtPosition(position).toString();
+                String item2 = parent.getItemAtPosition(position).toString();
 
                 Toast.makeText(getApplicationContext(),"Item: " + item2,Toast.LENGTH_SHORT).show();
 

@@ -29,4 +29,12 @@ public class Stops {
     public double getLatitude() { return latitude; }
 
     public double getLongitude() { return longitude; }
+
+    public String getArrivalTimes() {
+        String times = "";
+        return times;
+    }
+    public String display(){
+        return stopName;
+    }
 }
