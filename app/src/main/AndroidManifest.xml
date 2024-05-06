@@ -63,6 +63,14 @@
         <activity
             android:name=".BusSchedules"
             android:exported="true" />
+        <activity
+            android:name=".EditAlertActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddAlertActivity"
+            android:exported="true" />
+
     </application>
+
 
 </manifest>
