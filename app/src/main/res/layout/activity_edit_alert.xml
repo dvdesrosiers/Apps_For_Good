@@ -53,7 +53,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="datetime|date"
+                android:inputType="text|date"
                 android:id="@+id/dateET"/>
 
         </com.google.android.material.textfield.TextInputLayout>
