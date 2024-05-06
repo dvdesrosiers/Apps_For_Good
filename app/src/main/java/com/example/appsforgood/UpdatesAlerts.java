@@ -3,11 +3,7 @@ package com.example.appsforgood;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import android.view.View;
 import android.widget.Button;
@@ -15,19 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class UpdatesFeedback extends AppCompatActivity {
+public class UpdatesAlerts extends AppCompatActivity {
 Button backButton;
 EditText inputText;
 TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_updates_feedback);
+        setContentView(R.layout.activity_updates_alerts);
         backButton=findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UpdatesFeedback.this, MainActivity.class);
+                Intent intent = new Intent(UpdatesAlerts.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

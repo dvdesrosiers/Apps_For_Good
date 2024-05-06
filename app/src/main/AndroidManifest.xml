@@ -9,7 +9,13 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FOREGROUND_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_SMS" />
 
     <application
         android:allowBackup="true"
@@ -22,24 +28,6 @@
         android:theme="@style/Theme.AppsForGood"
         tools:targetApi="31">
         <activity
-            android:name=".SMS"
-            android:exported="false"
-            android:theme="@style/Theme.AppsForGood" />
-        <activity
-            android:name=".ui.theme.SMS"
-            android:exported="true"
-            android:label="@string/title_activity_sms"
-            android:theme="@style/Theme.AppsForGood">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -49,7 +37,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".test"
+            android:name=".SMSReceive"
+            android:exported="false" />
+        <activity
+            android:name=".SMS"
+            android:exported="false"
+            android:theme="@style/Theme.AppsForGood" />
+        <activity
+            android:name=".Maps"
             android:exported="true"
             android:label="@string/title_activity_test"
             android:theme="@style/Theme.AppsForGood">
@@ -60,7 +55,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UpdatesFeedback"
+            android:name=".Feedback"
+            android:exported="true" />
+        <activity
+            android:name=".UpdatesAlerts"
             android:exported="true" />
         <activity
             android:name=".BusSchedules"
