@@ -120,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
 
-        readQuestionData();
+        readStopData();
     }
 
-    private void readQuestionData(){
+    private void readStopData(){
         InputStream is = getResources().openRawResource(R.raw.stopdata);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -132,6 +132,24 @@ public class MainActivity extends AppCompatActivity {
             while((line = reader.readLine()) != null){
                 String[] fields = line.split(",");
 
+                Log.v("MainActivity",fields[0] + " " + fields[1] + " " + fields[2] + " " + fields[3]);
+                Stops s = new Stops(parseInt(fields[0]),fields[1],parseDouble(fields[2]),parseDouble(fields[3]) );
+            }
+        } catch (IOException e) {
+
+        }
+    }
+
+    private void readRouteData(){
+        InputStream is = getResources().openRawResource(R.raw.routelog);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        String line = "";
+        try{
+            while((line = reader.readLine()) != null){
+                String[] fields = line.split(",");
+
+                Log.v("MainActivity",fields[0] + " " + fields[1] + " " + fields[2] + " " + fields[3]);
                 Stops s = new Stops(parseInt(fields[0]),fields[1],parseDouble(fields[2]),parseDouble(fields[3]) );
             }
         } catch (IOException e) {
