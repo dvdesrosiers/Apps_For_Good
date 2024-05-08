@@ -135,28 +135,7 @@ TextView textView;
         });
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
 
-        readQuestionData();
-    }
-
-    private void readQuestionData(){
-        InputStream is = getResources().openRawResource(R.raw.stopdata);
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        String line = "";
-        try{
-            while((line = reader.readLine()) != null){
-                String[] fields = line.split(",");
-
-                Stops s = new Stops(parseInt(fields[0]),fields[1],parseDouble(fields[2]),parseDouble(fields[3]) );
-            }
-        } catch (IOException e) {
-
-        }
-    }
 }
 
 

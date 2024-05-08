@@ -55,7 +55,7 @@ public class Feedback extends AppCompatActivity {
                 Map<String, Object> alert = new HashMap<>();
                 alert.put("date", Objects.requireNonNull(date.getText()).toString());
                 alert.put("issue", Objects.requireNonNull(issue.getText()).toString());
-
+                
                 db.collection("feedback").add(alert).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
