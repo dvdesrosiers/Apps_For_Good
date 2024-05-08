@@ -37,9 +37,8 @@ public class Feedback extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Feedback.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                startActivity(new Intent(Feedback.this, MainActivity.class));
+
             }
         });
 

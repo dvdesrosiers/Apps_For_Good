@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
+import java.util.Arrays;
 
 public class StopsShow extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
@@ -45,7 +46,7 @@ public class StopsShow extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(StopsShow.this, MainActivity.class));
             }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -86,7 +87,7 @@ public class StopsShow extends AppCompatActivity {
     private String getStopCode(String stopName) throws IOException {
         InputStream is = getResources().openRawResource(R.raw.stopdata);
 
-        String[] stops = new String[0];
+        String[] stops;
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         String line = "";
@@ -137,6 +138,7 @@ public class StopsShow extends AppCompatActivity {
             //when string is empty then display toast msg
             Toast.makeText(this,"Please enter phone and message", Toast.LENGTH_SHORT).show();
         }
+        startActivity(new Intent(StopsShow.this, SMSReceive.class));
     }
 
 }

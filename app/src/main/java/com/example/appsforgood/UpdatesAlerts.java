@@ -52,9 +52,8 @@ TextView textView;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UpdatesAlerts.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                startActivity(new Intent(UpdatesAlerts.this, MainActivity.class));
+
             }
         });
         FirebaseApp.initializeApp(UpdatesAlerts.this);
