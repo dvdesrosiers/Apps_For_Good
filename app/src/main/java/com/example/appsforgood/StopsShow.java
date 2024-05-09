@@ -70,7 +70,7 @@ public class StopsShow extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//TODO
+                //TODO
                 //how to get scroll bar?
                 String item2 = parent.getItemAtPosition(position).toString();
                 try {
