@@ -56,8 +56,9 @@ public class SMSReceive extends AppCompatActivity {
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readSms();
-
+                Intent i = new Intent(SMSReceive.this,SMSReceive.class);
+                i.putExtra("code",stopCode);
+                startActivity(i);
             }
         });
 
@@ -66,7 +67,6 @@ public class SMSReceive extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendMessage(stopCode);
-
             }
         });
 
@@ -97,7 +97,7 @@ public class SMSReceive extends AppCompatActivity {
             do {
                 String address = cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
                 String body = cursor.getString(cursor.getColumnIndexOrThrow(Telephony.Sms.BODY));
-                if (address.equals("41411")) {
+                if (address.equals("41411")&&body.contains(stopCode)) {
                     smsList.add("Sender: " + address + "\nMessage: " + body);
                 }
             } while (cursor.moveToNext());
