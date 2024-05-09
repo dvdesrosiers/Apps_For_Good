@@ -102,7 +102,7 @@ public class StopsShow extends AppCompatActivity {
                 return "0";
     }
 
-    private void sendSMS(){
+    public void sendSMS(){
         if (ContextCompat.checkSelfPermission(StopsShow.this, android.Manifest.permission.SEND_SMS)
                 == PackageManager.PERMISSION_GRANTED) {
             sendMessage(stopCode);
@@ -134,11 +134,15 @@ public class StopsShow extends AppCompatActivity {
             smsManager.sendTextMessage(phone,null,message,null, null);
             //display Toast msg
             Toast.makeText(this,"SMS sent successfully", Toast.LENGTH_SHORT).show();
+            Intent test = new Intent(StopsShow.this, SMSReceive.class);
+            test.putExtra("code",stopCode);
+            startActivity(test);
         } else {
             //when string is empty then display toast msg
             Toast.makeText(this,"Please enter phone and message", Toast.LENGTH_SHORT).show();
         }
-        startActivity(new Intent(StopsShow.this, SMSReceive.class));
+
+
     }
 
 }
