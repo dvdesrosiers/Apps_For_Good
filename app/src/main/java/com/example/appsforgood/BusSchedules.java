@@ -78,7 +78,7 @@ public class BusSchedules extends AppCompatActivity {
                 String item2 = parent.getItemAtPosition(position).toString().toLowerCase().replace(" ", "");
                 InputStream is = getResources().openRawResource(R.raw.routelog);
 
-                String[] fields = new String[40];
+                String[] fields = new String[100];
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                 String line = "";

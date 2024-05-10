@@ -58,6 +58,7 @@ public class StopsShow extends AppCompatActivity {
         String[] stops = new String[0];
         if (extras != null) {
             stops = extras.getStringArray("item");
+            assert stops != null;
             stops[0]="";
             stops[1]="";
 
@@ -75,7 +76,6 @@ public class StopsShow extends AppCompatActivity {
                 String item2 = parent.getItemAtPosition(position).toString();
                 try {
                     stopCode = getStopCode(item2);
-                    Toast.makeText(StopsShow.this,stopCode,Toast.LENGTH_SHORT).show();
                     sendSMS();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -128,7 +128,7 @@ public class StopsShow extends AppCompatActivity {
         String message = "WRTA " + stopNum;
 
         //check condition if string is empty or not
-        if (!phone.isEmpty() && !message.isEmpty()){
+
             SmsManager smsManager = SmsManager.getDefault();
             //send message
             smsManager.sendTextMessage(phone,null,message,null, null);
@@ -137,10 +137,7 @@ public class StopsShow extends AppCompatActivity {
             Intent test = new Intent(StopsShow.this, SMSReceive.class);
             test.putExtra("code",stopCode);
             startActivity(test);
-        } else {
-            //when string is empty then display toast msg
-            Toast.makeText(this,"Please enter phone and message", Toast.LENGTH_SHORT).show();
-        }
+
 
 
     }
