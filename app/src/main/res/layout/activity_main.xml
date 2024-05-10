@@ -2,19 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mRecyclerView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <AutoCompleteTextView
-        android:id="@+id/auto_complete_txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="none"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button3"

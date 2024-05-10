@@ -13,11 +13,9 @@
     <string name="RouteEnterLabelStr">Enter Route</string>
     <string name="BusScheduleSearchStr">Search For a Bus Route Schedule</string>
     <string name="bus_schedule">Bus Schedule Search\n</string>
-    <string name="enter_date_dd_mm_yyyy">Date Entry\n</string>
-    <string name="select_route">Route Selection\n</string>
-    <string name="view_bus_times">View Bus Times\n</string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_sms">SMS</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -30,5 +28,52 @@
 
 
     <string name="select">Select Item</string>
+    <string name="route_one">Route One</string>
+    <string name="bus_Route_Names">\n</string>
+
+
+    <string-array name="bus_routes_full_txt">
+
+        <item>Route 1</item>
+        <item>Route 2</item>
+        <item>Route 3</item>
+        <item>Route 4</item>
+        <item>Route 5</item>
+        <item>Route 6</item>
+        <item>Route 7</item>
+        <item>Route 11</item>
+        <item>Route 12</item>
+        <item>Route 14</item>
+        <item>Route 15</item>
+        <item>Route 16</item>
+        <item>Route 19</item>
+        <item>Route 23</item>
+        <item>Route 24</item>
+        <item>Route 26</item>
+        <item>Route 27</item>
+        <item>Route 29</item>
+        <item>Route 30</item>
+        <item>Route 31</item>
+        <item>Route 33</item>
+        <item>Route 42</item>
+        <item>Route 825</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </string-array>
+
 
 </resources>

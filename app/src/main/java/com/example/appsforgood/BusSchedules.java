@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.view.View;
@@ -14,53 +16,48 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.Spinner;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class BusSchedules extends AppCompatActivity {
-    Button backButton;
-
-    String[] item = {"Route1", "Route2", "Route3", "Route4", "Route5", "Route6", "Route7",
-            "Route 8", "Route9", "Route10", "Route 11", "Route 12", "Route 13", "Route 14",
-            "Route 15", "Route 16", "Route 17", "Route 18", "Route 19", "Route 20", "Route 21",
-            "Route 22", "Route 23", "Route 24", "Route 25", "Route 26", "Route 27","Route 28",
-            "Route 29","Route 30", "Route 31"};
-    AutoCompleteTextView autoCompleteTextView;
 
 
-    ArrayAdapter<String> adapterItems;
+ArrayList<BusRoutes> busRoute = new ArrayList<>();
 
-    @SuppressLint("MissingInflatedId")
+int[] busRouteImages = {R.drawable.ic_route_1,R.drawable.ic_route_2,
+        R.drawable.ic_route_3, R.drawable.ic_route_4, R.drawable.ic_route_5, R.drawable.ic_route_6,
+        R.drawable.ic_route_7,R.drawable.ic_route_11,R.drawable.ic_route_12, R.drawable.ic_route_12,
+        R.drawable.ic_route_14,R.drawable.ic_route_15,R.drawable.ic_route_16,R.drawable.ic_route_19,
+        R.drawable.ic_route_23,R.drawable.ic_route_24, R.drawable.ic_route_26, R.drawable.ic_route_27,
+        R.drawable.ic_route_29, R.drawable.ic_route_30, R.drawable.ic_route_31,R.drawable.ic_route_33,
+        R.drawable.ic_route_42,R.drawable.ic_route_825};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_schedules);
 
+        RecyclerView recyclerView = findViewById(R.id.mRecyclerView);
 
-        autoCompleteTextView = findViewById(R.id.auto_complete_txt);
-
-        adapterItems = new ArrayAdapter<>(this, R.layout.list_item, item);
-
-        autoCompleteTextView.setAdapter(adapterItems);
-
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String item2 = parent.getItemAtPosition(position).toString();
-
-                Toast.makeText(getApplicationContext(),"Item: " + item2,Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        setUpBusRoutes();
 
 
-        backButton=findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        BusSchedule_Recycler_Adapter adapter = new BusSchedule_Recycler_Adapter(this, busRoute);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
     }
 
+    private void setUpBusRoutes (){
+
+        String[] busRouteNames = getResources().getStringArray(R.array.bus_routes_full_txt);
+
+        for (int i =0; i <busRouteNames.length; i++) {
+
+            busRoute.add(new BusRoutes(busRouteNames[i],busRouteImages[i]));
+
+        }
+
+    }
 }
