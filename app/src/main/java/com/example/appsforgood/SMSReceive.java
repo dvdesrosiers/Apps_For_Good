@@ -125,18 +125,10 @@ public class SMSReceive extends AppCompatActivity {
         //get value form editText
         String phone = "41411";
         String message = "WRTA " + stopNum;
-
-        //check condition if string is empty or not
-        if (!phone.isEmpty() && !message.isEmpty()) {
             SmsManager smsManager = SmsManager.getDefault();
             //send message
             smsManager.sendTextMessage(phone, null, message, null, null);
             //display Toast msg
             Toast.makeText(this, "SMS sent successfully", Toast.LENGTH_SHORT).show();
-
-        } else {
-            //when string is empty then display toast msg
-            Toast.makeText(this, "Please enter phone and message", Toast.LENGTH_SHORT).show();
-        }
     }
 }
