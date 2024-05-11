@@ -23,6 +23,8 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
+
+//retrieves text from the user's SMS and displays all appropriate information needed for bus arrival times
 public class SMSReceive extends AppCompatActivity {
 
 
@@ -35,7 +37,7 @@ public class SMSReceive extends AppCompatActivity {
     Button refresh;
     Button resend;
 
-
+    //retrieves data from the previous page, creates three buttons, checks for SMS reading permission and opens the readSms method
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,7 @@ public class SMSReceive extends AppCompatActivity {
         }
     }
 
-
+    //checks if SMS messages contain the stop code and display the message and sender if true
     public void readSms() {
         ContentResolver contentResolver = getContentResolver();
         Cursor cursor = contentResolver.query(
@@ -108,6 +110,7 @@ public class SMSReceive extends AppCompatActivity {
         }
     }
 
+    //checks for SMS reading permission and opens readSms class if appropriate
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -121,6 +124,7 @@ public class SMSReceive extends AppCompatActivity {
         }
     }
 
+    //resends the SMS message if resend button is pressed
     private void sendMessage(String stopNum) {
         //get value form editText
         String phone = "41411";
