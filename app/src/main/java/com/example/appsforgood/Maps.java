@@ -18,6 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
+//This class displays the Google Map webpage to the user
 public class Maps extends AppCompatActivity {
 
     private WebView mywebView;
@@ -25,7 +26,7 @@ public class Maps extends AppCompatActivity {
     LocationManager locationManager;
     String provider;
 
-
+    //requests permission for the app to get the user's location and runs the openMap method if permission is granted, creates a home button
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class Maps extends AppCompatActivity {
 
     }
 
+    //runs the openMap method if locaiton permission is granted
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode,permissions,grantResults);
@@ -60,6 +62,8 @@ public class Maps extends AppCompatActivity {
             Toast.makeText(this,"Permission Denied!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    //opens the Google Map webpage and displays full functionality to the user
     public class myWebClient extends WebViewClient {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
