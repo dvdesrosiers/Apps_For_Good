@@ -28,6 +28,8 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 import java.util.Arrays;
 
+
+//receives and displays the stops associated with a particular route given from the previous page
 public class StopsShow extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     Button backButton;
@@ -36,6 +38,8 @@ public class StopsShow extends AppCompatActivity {
 
     ArrayAdapter<String> adapterItems;
 
+
+    //creates a back button, gets data from previous page and maps it to data in this page, runs the getStopCode method and the sendSMS method
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +75,6 @@ public class StopsShow extends AppCompatActivity {
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO
-                //how to get scroll bar?
                 String item2 = parent.getItemAtPosition(position).toString();
                 try {
                     stopCode = getStopCode(item2);
@@ -84,6 +86,7 @@ public class StopsShow extends AppCompatActivity {
         });
     }
 
+    //finds the stop code from the CSV according to the stop name
     private String getStopCode(String stopName) throws IOException {
         InputStream is = getResources().openRawResource(R.raw.stopdata);
 
@@ -102,6 +105,7 @@ public class StopsShow extends AppCompatActivity {
                 return "0";
     }
 
+    //checks for SMS permissions and opens the sendMessage method if true
     public void sendSMS(){
         if (ContextCompat.checkSelfPermission(StopsShow.this, android.Manifest.permission.SEND_SMS)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -110,6 +114,8 @@ public class StopsShow extends AppCompatActivity {
             ActivityCompat.requestPermissions(StopsShow.this, new String[]{android.Manifest.permission.SEND_SMS}, 100);
         }
     }
+
+    //checks for SMS permission
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode,permissions,grantResults);
@@ -122,6 +128,8 @@ public class StopsShow extends AppCompatActivity {
             Toast.makeText(this,"Permission Denied!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    //sends an SMS message to the WRTA API with the given stop code and opens the SMSReceive class
     private void sendMessage(String stopNum){
         //get value form editText
         String phone = "41411";
