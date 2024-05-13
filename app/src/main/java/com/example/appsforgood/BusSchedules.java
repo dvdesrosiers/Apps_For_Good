@@ -1,5 +1,6 @@
 package com.example.appsforgood;
 
+// Import necessary classes and packages
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -39,10 +40,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 import org.w3c.dom.Document;
 
+// BusSchedules class definition, extending AppCompatActivity
 public class BusSchedules extends AppCompatActivity {
+
+    // Declare Button for going back to MainActivity
     Button backButton;
 
-
+    
+    // Array of bus routes
     String[] item = {"Route1", "Route2", "Route3", "Route4", "Route5", "Route6", "Route7",
             "Route 11", "Route 12", "Route 14", "Route 15", "Route 16", "Route 19", "Route 23", "Route 24", "Route 26", "Route 27",
             "Route 29","Route 30", "Route 31", "Route 33", "Route 42", "Route 825"};
@@ -52,11 +57,16 @@ public class BusSchedules extends AppCompatActivity {
 
     ArrayAdapter<String> adapterItems;
 
+    // Override the onCreate method to initialize the activity
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the layout for the activity from the XML resource
         setContentView(R.layout.activity_bus_schedules);
+        
+        // Initialize back button and set OnClickListener to return to MainActivity
         backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,15 +76,18 @@ public class BusSchedules extends AppCompatActivity {
             }
         });
 
+        // Initialize AutoCompleteTextView and ArrayAdapter for bus routes
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         adapterItems = new ArrayAdapter<>(this, R.layout.list_item, item);
         autoCompleteTextView.setAdapter(adapterItems);
 
-
+        
+        // Set OnItemClickListener for AutoCompleteTextView to handle item selection
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                
+                // Get the selected item
                 String item2 = parent.getItemAtPosition(position).toString().toLowerCase().replace(" ", "");
                 InputStream is = getResources().openRawResource(R.raw.routelog);
 
@@ -83,9 +96,15 @@ public class BusSchedules extends AppCompatActivity {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                 String line = "";
                 try{
+                    // Read each line from the file
                     while((line = reader.readLine()) != null){
+                            
+                            // Split the line by comma
                             fields = line.split(",");
+
+                            // Check if the first field matches the selected bus route
                             if (fields[0].equals(item2)){
+                                // If match found, create an Intent to start StopsShow activity and pass data
                                 Intent test = new Intent(BusSchedules.this, StopsShow.class);
                                 test.putExtra("item",fields);
                                 startActivity(test);
@@ -96,6 +115,7 @@ public class BusSchedules extends AppCompatActivity {
 
 
                 } catch (IOException e) {
+                // Handle IOException
 
                 }
 
