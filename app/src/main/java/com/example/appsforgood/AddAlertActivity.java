@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+//this class models...
 public class AddAlertActivity extends AppCompatActivity {
 
     @Override
