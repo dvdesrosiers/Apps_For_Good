@@ -42,23 +42,29 @@ public class AddAlertActivity extends AppCompatActivity {
         TextInputEditText issue = findViewById(R.id.issueET);
         MaterialButton addAlert = findViewById(R.id.addAlert);
 
+        // Set a click listener for the "Add Alert" button
         addAlert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a Map to store alert data
                 Map<String, Object> alert = new HashMap<>();
+                // Populate the Map with the data from the input fields
                 alert.put("time", Objects.requireNonNull(time.getText()).toString());
                 alert.put("date", Objects.requireNonNull(date.getText()).toString());
                 alert.put("issue", Objects.requireNonNull(issue.getText()).toString());
 
+                // Add the alert data to the "alerts" collection in Firestore
                 db.collection("alerts").add(alert).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        // Show success message if alert was added successfully
                         Toast.makeText(AddAlertActivity.this, "Alert added successfully", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        // Show an error message if alert adding was failed
                         Toast.makeText(AddAlertActivity.this, "Failed to add alert", Toast.LENGTH_SHORT).show();
                     }
                 });
