@@ -1,5 +1,6 @@
 package com.example.appsforgood;
 
+// Import statements for necessary Android libraries and components
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -23,16 +24,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-//this class models...
+// This class models the process for adding an alert to the Firebase system
 public class AddAlertActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // layout for activity
         setContentView(R.layout.activity_add_alert);
 
+        // Get an instance of the FirebaseFirestore for database connection
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+        // Get references to input fields and the corresponding button in the layout
         TextInputEditText time = findViewById(R.id.timeET);
         TextInputEditText date = findViewById(R.id.dateET);
         TextInputEditText issue = findViewById(R.id.issueET);
