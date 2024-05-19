@@ -4,6 +4,7 @@ package com.example.appsforgood;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -56,7 +57,7 @@ public class EditAlertActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         // Show success message if deletion is successful
                         Toast.makeText(EditAlertActivity.this, "Alert deleted successfully", Toast.LENGTH_SHORT).show();
-                        finish();
+                        startActivity(new Intent(EditAlertActivity.this,UpdatesAlerts.class));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
