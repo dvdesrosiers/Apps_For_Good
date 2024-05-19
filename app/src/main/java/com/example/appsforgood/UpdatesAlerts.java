@@ -60,6 +60,28 @@ TextView textView;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         RecyclerView recyclerView = findViewById(R.id.recycler);
 
+        db.collection("alerts").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    ArrayList<Alerts> arrayList = new ArrayList<>();
+                    for(QueryDocumentSnapshot doc: task.getResult()){
+                        Alerts alert = doc.toObject(Alerts.class);
+                        alert.setId(doc.getId());
+                        arrayList.add(alert);
+                    }
+
+                    AlertAdapter adapter = new AlertAdapter(UpdatesAlerts.this, arrayList);
+                    recyclerView.setAdapter(adapter);
+                    adapter.setOnItemClickListener(new AlertAdapter.OnItemClickListener() {
+                        @Override
+                        public void onClick(Alerts Alerts) {
+                            App.alert = Alerts;
+                            startActivity(new Intent(UpdatesAlerts.this, EditAlertActivity.class));
+                        }
+                    });
+                }
+
         FloatingActionButton add = findViewById(R.id.addAlert);
         add.setOnClickListener(new OnClickListener() {
             @Override
@@ -128,13 +150,13 @@ TextView textView;
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(UpdatesAlerts.this, "Failed to get all alerts list", Toast.LENGTH_SHORT).show();
-                    }
+                     }
                 });
             }
         });
     }
 
 
-}
+});}}
 
 
