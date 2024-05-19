@@ -59,7 +59,7 @@ public class AddAlertActivity extends AppCompatActivity {
                     public void onSuccess(DocumentReference documentReference) {
                         // Show success message if alert was added successfully
                         Toast.makeText(AddAlertActivity.this, "Alert added successfully", Toast.LENGTH_SHORT).show();
-                        finish();
+                        startActivity(new Intent(AddAlertActivity.this,UpdatesAlerts.class));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
