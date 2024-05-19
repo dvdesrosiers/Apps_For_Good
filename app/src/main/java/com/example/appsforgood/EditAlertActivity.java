@@ -85,7 +85,7 @@ public class EditAlertActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         // Show success message if update is successful
                         Toast.makeText(EditAlertActivity.this, "Saved successfully", Toast.LENGTH_SHORT).show();
-                        finish();
+                        startActivity(new Intent(EditAlertActivity.this,UpdatesAlerts.class));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
